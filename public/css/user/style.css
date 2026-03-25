@@ -1,0 +1,735 @@
+/* CSS変数定義 */
+:root {
+  --main-color: #3C2415;      /* ダークコーヒー / 深いウッド */
+  --sub-color: #FFFFFF;        /* ホワイト */
+  --accent-color: #B87A3B;    /* ゴールデンアンバー（コーヒー・木） */
+  --text-color: #2C1810;      /* テキスト用ダークブラウン */
+  --light-bg: #FBF4EC;        /* ウォームクリーム（明るいセクション背景） */
+  --cream-color: #F0DCC4;     /* ディープクリーム（交互セクション背景） */
+  --green-accent: #5C7A4E;    /* フォレストグリーン（リラックスアクセント） */
+}
+
+/* 共通 */
+.bg-base-color{
+    --bs-bg-opacity: 1;
+    background-color: var(--sub-color)!important;
+}
+
+.bg-light-gray{
+    --bs-bg-opacity: 1;
+    background-color: var(--light-bg)!important;
+}
+
+.bg-cream {
+    background-color: var(--cream-color)!important;
+}
+
+.text-base-color {
+    --bs-text-opacity: 1;
+    color: var(--sub-color)!important;
+}
+
+.bg-sub-color{
+    --bs-bg-opacity: 1;
+    background-color: var(--main-color)!important;
+}
+
+.text-sub-color {
+    --bs-text-opacity: 1;
+    color: var(--text-color)!important;
+}
+
+.text-accent {
+    color: var(--accent-color)!important;
+}
+
+.text-green {
+    color: var(--green-accent)!important;
+}
+
+.border-base-color {
+    border-color: var(--main-color)!important;
+}
+
+.btn-base-color {
+    color: #fff;
+    background-color: var(--main-color);
+}
+
+.btn-accent {
+    color: #fff;
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    font-weight: bold;
+}
+
+.btn-accent:hover {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-accent {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    font-weight: bold;
+    background-color: transparent;
+}
+
+.btn-outline-accent:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-base-color {
+    color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+.bg-footer-color {
+    color: #e8d5be;
+    background-color: var(--main-color);
+}
+
+/* ナビゲーション */
+#navbar {
+    background-color: #fff;
+    border-bottom: 3px solid var(--accent-color);
+    box-shadow: 0 2px 8px rgba(60, 36, 21, 0.08);
+    z-index: 1030;
+}
+
+/* fixed-topのナビバー分のオフセット */
+body > nav + * {
+    padding-top: 75px;
+}
+
+#navbar .nav-link {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    transition: color 0.2s;
+}
+
+#navbar .nav-link:hover {
+    color: var(--accent-color);
+}
+
+.nav-contact-btn {
+    background-color: var(--accent-color);
+    color: #fff !important;
+    border-radius: 4px;
+    padding: 0.4rem 1rem !important;
+    margin-left: 0.5rem;
+}
+
+.nav-contact-btn:hover {
+    background-color: var(--main-color) !important;
+    color: #fff !important;
+}
+
+h1 {
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+h5 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* divタグを並べた時、横と高さを揃える */
+.row-eq-height {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* ============ ①ファーストビュー ============ */
+#first-view {
+    position: relative;
+    width: 100%;
+    min-height: 540px;
+    background-image: url('/images/user/fhk-hero2.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#first-view::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(28, 12, 4, 0.52);
+    z-index: 1;
+}
+
+.fv-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 5rem 1.5rem;
+    max-width: 820px;
+    width: 100%;
+}
+
+#first-view .fv-catch {
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1.3;
+    color: #fff;
+    margin-bottom: 1.2rem;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+#first-view .fv-sub {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 2rem;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.35);
+}
+
+.img-placeholder {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--main-color) 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+
+
+/* ============ ②コンセプト ============ */
+#concept .concept-lead {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--main-color);
+    line-height: 1.6;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+#concept .concept-body {
+    line-height: 2;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+#concept .concept-highlight {
+    background-color: var(--cream-color);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 0 8px 8px 0;
+    padding: 0.8rem 1.2rem;
+    font-weight: 600;
+    color: var(--main-color);
+}
+
+/* ============ ③利用シーン ============ */
+#scenes .scene-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 4px 16px rgba(60, 36, 21, 0.1);
+    height: 100%;
+    border-top: 4px solid var(--accent-color);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#scenes .scene-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(60, 36, 21, 0.15);
+}
+
+#scenes .scene-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+#scenes .scene-label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+/* ============ ④サービス内容 ============ */
+#services .service-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(60, 36, 21, 0.1);
+    height: 100%;
+}
+
+#services .service-img-wrap {
+    width: 100%;
+    height: 220px;
+}
+
+#services .service-body {
+    padding: 1.5rem;
+}
+
+#services .service-title {
+    color: var(--main-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+#services .service-list {
+    list-style: none;
+    padding: 0;
+}
+
+#services .service-list li {
+    padding: 0.3rem 0;
+    padding-left: 1.4rem;
+    position: relative;
+    color: var(--text-color);
+}
+
+#services .service-list li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 0.7rem;
+    top: 0.5rem;
+}
+
+/* ============ ⑤商品・EC ============ */
+#ec .product-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(60, 36, 21, 0.1);
+    height: 100%;
+    border-bottom: 4px solid var(--accent-color);
+}
+
+#ec .product-img-wrap {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+#ec .product-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+#ec .product-body {
+    padding: 1.5rem;
+}
+
+#ec .product-tag {
+    font-size: 0.8rem;
+    font-weight: bold;
+    background-color: var(--green-accent);
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+/* ============ ⑥お知らせ ============ */
+.history {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.history li {
+    transition: background 0.2s;
+}
+
+.history li:hover {
+    background-color: var(--cream-color);
+}
+
+.history a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/* ============ ⑦店舗情報・アクセス ============ */
+#store .store-table {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 16px rgba(60, 36, 21, 0.08);
+}
+
+#store .store-table th {
+    width: 130px;
+    color: var(--accent-color);
+    font-weight: bold;
+    padding-bottom: 0.8rem;
+    vertical-align: top;
+}
+
+#store .store-table td {
+    color: var(--text-color);
+    padding-bottom: 0.8rem;
+}
+
+.map-wrap iframe {
+    width: 100%;
+    height: 380px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(60, 36, 21, 0.12);
+}
+
+/* ============ ⑧よくある質問 ============ */
+.faq-title {
+    color: var(--main-color);
+    font-weight: bold;
+    margin: 2rem 0 1rem;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 0.8rem;
+}
+
+.accordion-item {
+    border-color: var(--cream-color);
+    margin-bottom: 0.5rem;
+    border-radius: 8px !important;
+    overflow: hidden;
+}
+
+.accordion-button {
+    font-weight: 500;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--main-color);
+    background-color: var(--cream-color);
+    box-shadow: none;
+}
+
+.accordion-button::after {
+    filter: none;
+}
+
+.faq-question {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    margin-right: 0.6rem;
+    min-width: 1.4rem;
+}
+
+/* ============ お問い合わせ ============ */
+#contact .btn-contact {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+#contact .btn-contact:hover {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+/* ============ フッター ============ */
+.footer-dt {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.footer-link {
+    color: #e8d5be;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-link:hover {
+    color: var(--accent-color);
+}
+
+.footer-logo {
+    opacity: 0.9;
+    /* max-height: 60px; */
+    width: auto;
+}
+
+.footer-brand-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #c8a880;
+    letter-spacing: 0.08em;
+    margin: 0;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #c8a880;
+    transition: all 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--accent-color);
+}
+
+/* ============ セクション共通装飾 ============ */
+.section-heading {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.section-heading::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    margin: 0.5rem auto 0;
+}
+
+/* ============ レスポンシブ ============ */
+.br-sp {
+    display: none;
+}
+
+.main-logo {
+    height: 55px;
+}
+
+.navbar-brand-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--main-color);
+    letter-spacing: 0.05em;
+    line-height: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .br-sp {
+        display: block;
+    }
+
+    body > nav + * {
+        padding-top: 60px;
+    }
+
+    .main-logo {
+        height: 36px;
+    }
+
+    .navbar-brand-text {
+        font-size: 1rem;
+    }
+
+    #first-view {
+        min-height: 500px;
+    }
+
+    #first-view .fv-catch {
+        font-size: 1.9rem;
+    }
+
+    .fv-content {
+        padding: 3rem 1.5rem;
+    }
+
+    #services .service-img-wrap {
+        height: 180px;
+    }
+}
+
+
+
+/* ============ ニュース詳細 ============ */
+#news a {
+    text-decoration: none;
+    color: var(--text-color)!important;
+}
+
+#news-detail .title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center !important;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#news-body {
+    min-height: 400px;
+}
+
+#news-body .body {
+    font-size: 1rem;
+    margin-left: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+#news-body h2 {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.news-footer {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.btn-top {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.btn-top:hover {
+    border-color: 1px solid var(--main-color);
+    color: var(--main-color);
+}
+
+/* ============ お問い合わせページ ============ */
+
+.contact-section {
+    background-color: var(--light-bg);
+}
+
+.contact-form-card,
+.contact-confirm-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 2px 16px rgba(60, 36, 21, 0.08);
+}
+
+.contact-label {
+    font-weight: 600;
+    color: var(--main-color);
+    margin-bottom: 0.4rem;
+}
+
+.contact-input {
+    border: 1.5px solid #d9c8b8;
+    border-radius: 8px;
+    padding: 0.6rem 0.9rem;
+    transition: border-color 0.2s;
+}
+
+.contact-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.2rem rgba(184, 122, 59, 0.15);
+    outline: none;
+}
+
+.badge-required {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15em 0.5em;
+    border-radius: 4px;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+}
+
+.badge-optional {
+    display: inline-block;
+    background-color: #aaa;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15em 0.5em;
+    border-radius: 4px;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+}
+
+.btn-contact-submit {
+    font-size: 1.05rem;
+    border-radius: 40px;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+}
+
+.btn-contact-back {
+    font-size: 1rem;
+    border-radius: 40px;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.btn-contact-back:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+/* 確認テーブル */
+.contact-confirm-table th {
+    width: 36%;
+    background-color: var(--light-bg);
+    color: var(--main-color);
+    font-weight: 600;
+    vertical-align: middle;
+    padding: 0.9rem 1rem;
+}
+
+.contact-confirm-table td {
+    padding: 0.9rem 1rem;
+    vertical-align: middle;
+    color: var(--main-color);
+}
+
+.contact-message-cell {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* 完了画面 */
+.contact-complete-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 2px 16px rgba(60, 36, 21, 0.08);
+}
+
+.complete-icon .bi-check-circle-fill {
+    font-size: 4rem;
+    color: var(--green-accent);
+}
