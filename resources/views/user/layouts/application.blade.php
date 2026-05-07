@@ -84,7 +84,7 @@
                 <div class="col-md-4 mb-4">
                     <dl>
                         <dt class="footer-dt">合同会社FHK（フィーカ）</dt>
-                        <dd class="mb-1">〒388-8007 長野県長野市篠ノ井会３４３−７</dd>
+                        <dd class="mb-1">〒388-8004 長野県長野市篠ノ井会３４３−７</dd>
                         <dd class="mb-1">営業時間：10:00〜17:00（週末・不定休）</dd>
                     </dl>
                 </div>
