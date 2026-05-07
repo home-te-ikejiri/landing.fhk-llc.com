@@ -46,22 +46,25 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#concept">コンセプト</a>
+                        <a class="nav-link" href="{{ url('/') }}#concept">コンセプト</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">サービス</a>
+                        <a class="nav-link" href="{{ url('/') }}#services">サービス</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#news">お知らせ</a>
+                        <a class="nav-link" href="{{ route('user.price') }}">料金</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#store">アクセス</a>
+                        <a class="nav-link" href="{{ url('/') }}#news">お知らせ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#faq">よくある質問</a>
+                        <a class="nav-link" href="{{ url('/') }}#store">アクセス</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-contact-btn" href="#contact">お問い合わせ</a>
+                        <a class="nav-link" href="{{ url('/') }}#faq">よくある質問</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-contact-btn" href="{{ route('user.contact') }}">お問い合わせ</a>
                     </li>
                 </ul>
             </div>

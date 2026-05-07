@@ -287,7 +287,10 @@ h5 {
 }
 
 #services .service-body {
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 #services .service-title {
@@ -732,4 +735,187 @@ h5 {
 .complete-icon .bi-check-circle-fill {
     font-size: 4rem;
     color: var(--green-accent);
+}
+
+/* ============ 料金ページ ============ */
+.page-header {
+    padding: calc(75px + 2rem) 0 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .page-header {
+        padding-top: calc(60px + 1.5rem);
+    }
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+}
+
+.price-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(60, 36, 21, 0.1);
+    border-top: 4px solid var(--accent-color);
+}
+
+.price-card-title {
+    color: var(--main-color);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.price-formula {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.price-table {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 36, 21, 0.08);
+}
+
+.price-table thead {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.price-table thead th {
+    border: none;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+}
+
+.price-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.price-table td {
+    padding: 0.65rem 1rem;
+    vertical-align: middle;
+}
+
+.price-amount {
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.price-notes {
+    background-color: rgba(184, 122, 59, 0.08);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.2rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.example-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(60, 36, 21, 0.09);
+    height: 100%;
+}
+
+.example-card-header {
+    background-color: var(--accent-color);
+    color: #fff;
+    font-weight: bold;
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+}
+
+.capacity-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 2px 10px rgba(60, 36, 21, 0.09);
+    height: 100%;
+}
+
+.capacity-icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    flex-shrink: 0;
+}
+
+.capacity-label {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    margin-bottom: 0.2rem;
+}
+
+.capacity-num {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--main-color);
+    margin-bottom: 0;
+}
+
+.option-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(60, 36, 21, 0.09);
+}
+
+.option-card-header {
+    background-color: var(--main-color);
+    color: #e8d5be;
+    font-weight: bold;
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+}
+
+.option-card-body {
+    padding: 1.2rem 1.5rem;
+}
+
+.option-price {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.option-price small {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.option-desc {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 0;
+}
+
+.notes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notes-list li {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(60, 36, 21, 0.1);
+    display: flex;
+    align-items: baseline;
+    gap: 0.2rem;
+    line-height: 1.7;
+}
+
+.notes-list li:last-child {
+    border-bottom: none;
 }

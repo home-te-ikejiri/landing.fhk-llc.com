@@ -21,6 +21,10 @@ class MainController extends Controller
         $news = $this->service->fetchNews();
 
         return view('user.main.index', compact('faqs', 'news'));
-       
+    }
+
+    public function price()
+    {
+        return view('user.main.price');
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\User\NewsController;
 
 Route::name('user.')->group(function () {
     Route::get('/',                 [MainController::class, 'index']);
+    Route::get('/price',            [MainController::class, 'price'])->name('price');
     Route::get('/news/{id}',        [NewsController::class, 'show']);
 
     // お問い合わせ

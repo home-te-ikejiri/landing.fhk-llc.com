@@ -18,6 +18,9 @@
                 <a href="#services" class="btn btn-accent px-4 py-2 shadow">
                     <i class="bi bi-door-open-fill me-1"></i> サービスを見る
                 </a>
+                <a href="{{ route('user.price') }}" class="btn btn-outline-light px-4 py-2">
+                    <i class="bi bi-currency-yen me-1"></i> 利用料金はこちら
+                </a>
                 <a href="https://stores.jp" target="_blank" class="btn btn-outline-light px-4 py-2">
                     <i class="bi bi-bag-fill me-1"></i> ECショップはこちら
                 </a>
@@ -140,6 +143,13 @@
                     </div>
                 </div>
             </div>
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <a href="{{ route('user.price') }}" class="btn btn-outline-accent px-4 py-2">
+                        <i class="bi bi-currency-yen me-1"></i> 利用料金はこちら
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -184,6 +194,11 @@
                                 <li>教室開催（ヨガ・講座など）</li>
                                 <li>カウンセリング利用</li>
                             </ul>
+                            <div class="pb-3">
+                                <a href="{{ route('user.price') }}" class="btn btn-outline-accent btn-sm">
+                                    <i class="bi bi-currency-yen me-1"></i> 利用料金はこちら
+                                </a>
+                            </div>
                         </div>
                     </div>
 
