@@ -35,4 +35,30 @@ class ShopScheduleController extends Controller
         $month = $request->input('month');
         return redirect("admin/shop-schedule?month={$month}")->with('status', '保存しました');
     }
+
+    public function bulkUpdate(Request $request)
+    {
+        $dates  = $request->input('dates', []);
+        $status = (int) $request->input('status', 0);
+        $memo   = $request->input('memo') ?: null;
+
+        if (empty($dates)) {
+            return response()->json(['message' => '日付が選択されていません'], 422);
+        }
+
+        // 日付形式の簡易バリデーション
+        foreach ($dates as $date) {
+            if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+                return response()->json(['message' => '不正な日付形式です'], 422);
+            }
+        }
+
+        if (!in_array($status, [0, 1, 2], true)) {
+            return response()->json(['message' => '不正なステータスです'], 422);
+        }
+
+        $this->service->bulkUpdate($dates, $status, $memo);
+
+        return response()->json(['message' => '一括変更しました', 'count' => count($dates)]);
+    }
 }

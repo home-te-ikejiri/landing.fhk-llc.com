@@ -61,4 +61,20 @@ class ShopScheduleService extends Service
             );
         }
     }
+
+    /**
+     * 指定された日付リストに対して一括でステータス・メモを更新する
+     */
+    public function bulkUpdate(array $dates, int $status, ?string $memo): void
+    {
+        foreach ($dates as $date) {
+            $this->model->updateOrCreate(
+                ['date' => $date],
+                [
+                    'status' => $status,
+                    'memo'   => $memo,
+                ]
+            );
+        }
+    }
 }

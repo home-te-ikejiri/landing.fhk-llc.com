@@ -32,10 +32,12 @@ Route::prefix('admin')->name('admin.')->middleware('basicauth')->group(function 
     Route::get('rental-room-setting',  [RentalRoomSettingController::class, 'edit'])->name('rental-room-setting.edit');
     Route::put('rental-room-setting',  [RentalRoomSettingController::class, 'update'])->name('rental-room-setting.update');
     // スケジュール管理
-    Route::get('shop-schedule',         [ShopScheduleController::class, 'index'])->name('shop-schedule.index');
-    Route::post('shop-schedule',        [ShopScheduleController::class, 'store'])->name('shop-schedule.store');
-    Route::get('rental-room-schedule',  [RentalRoomScheduleController::class, 'index'])->name('rental-room-schedule.index');
-    Route::post('rental-room-schedule', [RentalRoomScheduleController::class, 'store'])->name('rental-room-schedule.store');
+    Route::get('shop-schedule',                [ShopScheduleController::class, 'index'])->name('shop-schedule.index');
+    Route::post('shop-schedule',               [ShopScheduleController::class, 'store'])->name('shop-schedule.store');
+    Route::post('shop-schedule/bulk-update',   [ShopScheduleController::class, 'bulkUpdate'])->name('shop-schedule.bulk-update');
+    Route::get('rental-room-schedule',                [RentalRoomScheduleController::class, 'index'])->name('rental-room-schedule.index');
+    Route::post('rental-room-schedule',               [RentalRoomScheduleController::class, 'store'])->name('rental-room-schedule.store');
+    Route::post('rental-room-schedule/bulk-update',   [RentalRoomScheduleController::class, 'bulkUpdate'])->name('rental-room-schedule.bulk-update');
     // 時間枠管理
     Route::get('rental-room-time-slot/{date}',  [RentalRoomTimeSlotController::class, 'show'])->name('rental-room-time-slot.show');
     Route::post('rental-room-time-slot',        [RentalRoomTimeSlotController::class, 'store'])->name('rental-room-time-slot.store');
