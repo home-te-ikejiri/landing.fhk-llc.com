@@ -4,7 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\RentalRoomReservationRequest;
+use App\Mail\RentalRoomStatusMail;
+use App\Mail\RentalRoomStatusAdminMail;
+use App\Models\RentalRoomReservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Services\Admin\RentalRoomReservationService;
 
 class RentalRoomReservationController extends Controller
@@ -57,6 +61,31 @@ class RentalRoomReservationController extends Controller
     public function update(RentalRoomReservationRequest $request, string $id)
     {
         $this->service->upsert($request);
+
+        // メール送信チェックボックスがオンの場合のみ送信
+        if ($request->boolean('send_mail')) {
+            $statusKeyMap = [
+                RentalRoomReservation::STATUS_CONFIRMED  => 'confirmed',
+                RentalRoomReservation::STATUS_REJECTED   => 'rejected',
+                RentalRoomReservation::STATUS_CANCELLED  => 'cancelled',
+            ];
+            $statusKey = $statusKeyMap[(int) $request->input('status')] ?? null;
+
+            if ($statusKey) {
+                $reservation = $this->service->fetchById($id);
+                $extraNote   = $request->input('mail_extra_note', '');
+
+                // ユーザーへ
+                Mail::to($reservation->email)
+                    ->send(new RentalRoomStatusMail($reservation, $statusKey, $extraNote));
+
+                // 管理者へ（ユーザー送付内容を含む）
+                $adminTo = config('mail.contact_to', config('mail.from.address'));
+                Mail::to($adminTo)
+                    ->send(new RentalRoomStatusAdminMail($reservation, $statusKey, $extraNote));
+            }
+        }
+
         return redirect('admin/rental-room-reservation')->with('status', '更新しました');
     }
 
