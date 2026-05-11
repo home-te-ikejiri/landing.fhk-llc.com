@@ -52,6 +52,9 @@
                         <a class="nav-link" href="{{ url('/') }}#services">サービス</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/') }}#calendar">カレンダー・予約</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('user.price') }}">料金</a>
                     </li>
                     <li class="nav-item">
@@ -118,6 +121,7 @@
     <script src="{{ asset('/assets/admin_lte_3.2.0/plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('/assets/bootstrap-5.3.0/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/slick-1.8.1/slick/slick.min.js') }}" defer></script>
+    @stack('scripts')
 
 </body>
 </html>

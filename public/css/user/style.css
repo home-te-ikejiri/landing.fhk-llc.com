@@ -103,7 +103,7 @@
 
 /* fixed-topのナビバー分のオフセット */
 body > nav + * {
-    padding-top: 75px;
+    padding-top: 75px !important;
 }
 
 #navbar .nav-link {
@@ -525,6 +525,225 @@ h5 {
     margin: 0.5rem auto 0;
 }
 
+/* ============ ⑤カレンダー・予約 ============ */
+
+/* 月ナビゲーション */
+.calendar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.cal-month-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--main-color);
+    min-width: 7rem;
+    text-align: center;
+}
+
+.cal-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.cal-nav-btn:hover {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+/* 凡例 */
+.cal-legend {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    font-size: 0.82rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
+.cal-legend-txt {
+    color: #777;
+}
+
+/* ステータス色 */
+.cal-open   { color: var(--green-accent); font-weight: 700; }
+.cal-full   { color: #c0392b; font-weight: 700; }
+.cal-closed { color: #888; }
+.cal-none   { color: #bbb; }
+
+/* ===== PC カレンダー（テーブル形式） ===== */
+.cal-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.cal-table thead th {
+    background-color: var(--main-color);
+    color: #fff;
+    text-align: center;
+    padding: 0.5rem 0.2rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.cal-table thead th.cal-sun { background-color: #a93226; }
+.cal-table thead th.cal-sat { background-color: #1a5276; }
+
+.cal-cell {
+    vertical-align: top;
+    border: 1px solid #ddd;
+    padding: 0.4rem 0.5rem;
+    background-color: #fff;
+    min-height: 90px;
+    font-size: 0.82rem;
+}
+
+.cal-cell.cal-empty {
+    background-color: #f9f5f0;
+}
+
+.cal-cell.cal-sun { background-color: #fdf3f2; }
+.cal-cell.cal-sat { background-color: #f2f5fd; }
+
+.cal-cell.cal-today { outline: 2px solid var(--accent-color); outline-offset: -2px; }
+
+.cal-day-num {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-align: right;
+    line-height: 1.2;
+    margin-bottom: 0.2rem;
+}
+
+.cal-day-num.cal-today-num {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #fff;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    float: right;
+}
+
+.cal-cell.cal-sun .cal-day-num { color: #a93226; }
+.cal-cell.cal-sat .cal-day-num { color: #1a5276; }
+
+.cal-status-row {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 0.78rem;
+    margin-bottom: 0.2rem;
+}
+
+.cal-label-type {
+    color: #aaa;
+    font-size: 0.7rem;
+}
+
+.cal-event-item {
+    margin-top: 0.2rem;
+}
+
+.cal-event-link {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+    padding: 0.1rem 0.2rem;
+    background-color: #fef9f1;
+    border-left: 2px solid var(--accent-color);
+    border-radius: 2px;
+    transition: background-color 0.2s;
+}
+
+.cal-event-link:hover {
+    background-color: #f5e6cc;
+    color: var(--main-color);
+}
+
+/* ===== SP カレンダー（2列リスト）※ JS なし --*/
+.calendar-sp {
+    display: none;
+}
+
+.cal-sp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.cal-sp-table thead th {
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+}
+
+.cal-sp-table .cal-sp-th-date    { width: 5rem; }
+.cal-sp-table .cal-sp-th-content { }
+
+.cal-sp-table tr {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.cal-sp-table tr.cal-today {
+    background-color: #fef5e4;
+}
+
+.cal-sp-date {
+    padding: 0.45rem 0.5rem;
+    vertical-align: top;
+    white-space: nowrap;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.cal-sp-table tr.cal-sun .cal-sp-date { color: #a93226; }
+.cal-sp-table tr.cal-sat .cal-sp-date { color: #1a5276; }
+
+.cal-sp-content {
+    padding: 0.4rem 0.5rem;
+    vertical-align: top;
+}
+
+.cal-sp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    margin-right: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--text-color);
+}
+
+.cal-sp-event {
+    margin-top: 0.2rem;
+    font-size: 0.8rem;
+}
+
 /* ============ レスポンシブ ============ */
 .br-sp {
     display: none;
@@ -548,7 +767,7 @@ h5 {
     }
 
     body > nav + * {
-        padding-top: 60px;
+        padding-top: 60px !important;
     }
 
     .main-logo {
@@ -574,9 +793,229 @@ h5 {
     #services .service-img-wrap {
         height: 180px;
     }
+
+    /* カレンダー: SP では2列リストに切り替え */
+    .calendar-pc { display: none; }
+    .calendar-sp { display: block; }
+
+    /* 各サブページのナビバーオフセット（SP版） */
+    .reserve-section,
+    .contact-section {
+        padding-top: 60px !important;
+    }
 }
 
 
+
+/* ============ 予約フォーム共通（グループE・F） ============ */
+
+.reserve-section {
+    background-color: var(--light-bg);
+    padding-top: 75px !important;
+}
+
+/* カード */
+.reserve-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(60, 36, 21, 0.07);
+}
+
+.reserve-card-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--main-color);
+    border-left: 4px solid var(--accent-color);
+    padding-left: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.reserve-label {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.reserve-input {
+    border-color: #d8c7b5;
+}
+
+.reserve-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.2rem rgba(184, 122, 59, 0.2);
+}
+
+/* 必須・任意バッジ */
+.badge-required {
+    display: inline-block;
+    font-size: 0.7rem;
+    background-color: #c0392b;
+    color: #fff;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: 0.3rem;
+}
+
+.badge-optional {
+    display: inline-block;
+    font-size: 0.7rem;
+    background-color: #aaa;
+    color: #fff;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: 0.3rem;
+}
+
+/* 送信ボタン */
+.btn-reserve-submit {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+    font-weight: 700;
+    border-radius: 30px;
+    padding: 0.6rem 2.5rem;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-reserve-submit:hover {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.btn-reserve-back {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    border-radius: 30px;
+}
+
+.btn-reserve-back:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.btn-outline-accent {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.btn-outline-accent:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+/* 確認画面カード */
+.reserve-confirm-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(60, 36, 21, 0.07);
+}
+
+.reserve-confirm-table th {
+    background-color: var(--light-bg);
+    color: var(--main-color);
+    font-weight: 600;
+    white-space: nowrap;
+    width: 9rem;
+    padding: 0.7rem 1rem;
+}
+
+.reserve-confirm-table td {
+    padding: 0.7rem 1rem;
+    color: var(--text-color);
+}
+
+.reserve-message-cell {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* 完了画面カード */
+.reserve-complete-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    box-shadow: 0 2px 12px rgba(60, 36, 21, 0.07);
+}
+
+.reserve-complete-card .complete-icon i {
+    font-size: 4rem;
+    color: var(--green-accent);
+}
+
+/* ============ レンタルルーム 時間帯テーブル ============ */
+
+.slot-table-wrap {
+    max-height: 420px;
+    overflow-y: auto;
+    border-radius: 8px;
+    border: 1px solid #e0d5c8;
+}
+
+.slot-table {
+    margin-bottom: 0;
+}
+
+.slot-table thead th {
+    background-color: var(--main-color);
+    color: #fff;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.slot-label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.slot-remaining {
+    font-size: 0.85rem;
+    color: var(--text-color);
+}
+
+.slot-row.slot-open {
+    background-color: #f7fbf5;
+}
+
+.slot-row.slot-blocked {
+    background-color: #faf7f7;
+    color: #aaa;
+}
+
+.slot-badge-open {
+    font-weight: 700;
+    color: var(--green-accent);
+    font-size: 1rem;
+}
+
+.slot-badge-blocked {
+    font-weight: 700;
+    color: #c0392b;
+    font-size: 1rem;
+}
+
+/* ============ イベント詳細 ============ */
+
+.event-desc-heading {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--main-color);
+    border-bottom: 2px solid var(--cream-color);
+    padding-bottom: 0.3rem;
+    margin-bottom: 0.8rem;
+}
+
+.event-desc-body {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    line-height: 1.8;
+}
 
 /* ============ ニュース詳細 ============ */
 #news a {
@@ -633,6 +1072,7 @@ h5 {
 
 .contact-section {
     background-color: var(--light-bg);
+    padding-top: 75px !important;
 }
 
 .contact-form-card,

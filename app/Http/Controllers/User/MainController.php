@@ -6,21 +6,28 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Services\User\MainService;
+use App\Services\User\CalendarService;
 
 
 class MainController extends Controller
 {
-    public function __construct(MainService $service)
-    {
-        $this->service = $service;
-    }
+    public function __construct(
+        private MainService     $service,
+        private CalendarService $calendarService,
+    ) {}
 
     public function index(Request $request)
     {
         $faqs = $this->service->fetchFaqs();
         $news = $this->service->fetchNews();
 
-        return view('user.main.index', compact('faqs', 'news'));
+        $month = $request->get('month', now()->format('Y-m'));
+        if (!preg_match('/^\d{4}-\d{2}$/', $month)) {
+            $month = now()->format('Y-m');
+        }
+        $calendar = $this->calendarService->getCalendar($month);
+
+        return view('user.main.index', compact('faqs', 'news', 'calendar'));
     }
 
     public function price()

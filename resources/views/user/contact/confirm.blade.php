@@ -1,6 +1,13 @@
 @extends('user.layouts.application')
 
 @section('content')
+@php
+    $relatedTypeLabels = [
+        'rental_room_reservation' => 'レンタルルーム予約の変更・キャンセル',
+        'event_reservation'       => 'イベント予約の変更・キャンセル',
+        'other'                   => 'その他',
+    ];
+@endphp
 
 <section class="py-5 contact-section" id="contact-confirm">
     <div class="container py-3">
@@ -37,6 +44,18 @@
                             <tr>
                                 <th>電話番号</th>
                                 <td>{{ $data['phone'] }}</td>
+                            </tr>
+                            @endif
+                            @if (!empty($data['related_type']))
+                            <tr>
+                                <th>お問い合わせ種別</th>
+                                <td>{{ $relatedTypeLabels[$data['related_type']] ?? $data['related_type'] }}</td>
+                            </tr>
+                            @endif
+                            @if (!empty($data['related_id_input']))
+                            <tr>
+                                <th>予約番号</th>
+                                <td>{{ $data['related_id_input'] }}</td>
                             </tr>
                             @endif
                             <tr>

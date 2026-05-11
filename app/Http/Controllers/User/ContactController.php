@@ -26,7 +26,7 @@ class ContactController extends Controller
     /** バリデーション → 確認画面表示 */
     public function confirm(ContactRequest $request): View
     {
-        $data = $request->only(['name', 'kana', 'email', 'phone', 'message']);
+        $data = $request->only(['name', 'kana', 'email', 'phone', 'related_type', 'related_id_input', 'message']);
         $request->session()->put(self::SESSION_KEY, $data);
         return view('user.contact.confirm', compact('data'));
     }

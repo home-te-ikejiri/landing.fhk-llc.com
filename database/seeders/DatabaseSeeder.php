@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             FaqCategorySeeder::class,
             FaqSeeder::class,
+            RentalRoomSettingSeeder::class,
         ]);
     }
 }

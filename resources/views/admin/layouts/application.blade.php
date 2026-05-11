@@ -89,6 +89,74 @@
                                 </li>
                             </ul>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{ url('/admin/event') }}" class="nav-link">
+                                <i class="nav-icon fas fa-calendar-alt"></i>
+                                <p>イベント管理</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-door-open"></i>
+                                <p>
+                                    レンタルルーム
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item ml-4">
+                                    <a href="{{ url('/admin/rental-room-schedule') }}" class="nav-link">
+                                        <i class="nav-icon far fa-circle"></i>
+                                        <p>日別スケジュール</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ml-4">
+                                    <a href="{{ url('/admin/rental-room-setting') }}" class="nav-link">
+                                        <i class="nav-icon far fa-circle"></i>
+                                        <p>席数設定</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ url('/admin/shop-schedule') }}" class="nav-link">
+                                <i class="nav-icon fas fa-coffee"></i>
+                                <p>喫茶店スケジュール</p>
+                            </a>
+                        </li>
+
+                        {{-- 予約管理 --}}
+                        <li class="nav-item has-treeview {{ str_starts_with(request()->path(), 'admin/rental-room-reservation') || str_starts_with(request()->path(), 'admin/event-reservation') ? 'menu-open' : '' }}">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-calendar-check"></i>
+                                <p>予約管理<i class="right fas fa-angle-left"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item ml-4">
+                                    <a href="{{ url('/admin/rental-room-reservation') }}" class="nav-link">
+                                        <i class="nav-icon far fa-circle"></i>
+                                        <p>レンタルルーム予約</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ml-4">
+                                    <a href="{{ url('/admin/event-reservation') }}" class="nav-link">
+                                        <i class="nav-icon far fa-circle"></i>
+                                        <p>イベント予約</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        {{-- お問い合わせ --}}
+                        <li class="nav-item">
+                            <a href="{{ url('/admin/contact') }}" class="nav-link">
+                                <i class="nav-icon fas fa-envelope"></i>
+                                <p>お問い合わせ</p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

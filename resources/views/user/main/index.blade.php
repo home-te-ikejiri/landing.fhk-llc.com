@@ -223,7 +223,20 @@
         </div>
     </section>
 
-    {{-- ⑤ 商品・EC --}}
+    {{-- ⑤ カレンダー・予約 --}}
+    <section class="py-5 bg-cream text-sub-color" id="calendar">
+        <div class="container py-3">
+            <div class="row pb-3">
+                <div class="col text-center">
+                    <h1 class="section-heading">営業カレンダー・ご予約</h1>
+                    <p class="mt-2">喫茶店の営業日・レンタルルームの空き状況・イベント情報をご確認いただけます。</p>
+                </div>
+            </div>
+            @include('user.main._calendar')
+        </div>
+    </section>
+
+    {{-- ⑥ 商品・EC --}}
     <section class="py-5 text-sub-color" id="ec">
         <div class="container py-3">
             <div class="row pb-3">

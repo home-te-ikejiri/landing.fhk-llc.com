@@ -109,6 +109,54 @@
                             @enderror
                         </div>
 
+                        {{-- お問い合わせ種別 --}}
+                        <div class="mb-4">
+                            <label for="related_type" class="form-label contact-label">
+                                お問い合わせ種別 <span class="badge-optional">任意</span>
+                            </label>
+                            <select id="related_type" name="related_type"
+                                class="form-select contact-input @error('related_type') is-invalid @enderror">
+                                <option value="">選択してください（任意）</option>
+                                <option value="rental_room_reservation"
+                                    {{ old('related_type', $old['related_type'] ?? '') === 'rental_room_reservation' ? 'selected' : '' }}>
+                                    レンタルルーム予約の変更・キャンセル
+                                </option>
+                                <option value="event_reservation"
+                                    {{ old('related_type', $old['related_type'] ?? '') === 'event_reservation' ? 'selected' : '' }}>
+                                    イベント予約の変更・キャンセル
+                                </option>
+                                <option value="other"
+                                    {{ old('related_type', $old['related_type'] ?? '') === 'other' ? 'selected' : '' }}>
+                                    その他
+                                </option>
+                            </select>
+                            @error('related_type')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        {{-- 予約番号（種別が予約系のときのみ表示） --}}
+                        <div class="mb-4" id="related-id-wrap"
+                            style="{{ in_array(old('related_type', $old['related_type'] ?? ''), ['rental_room_reservation','event_reservation']) ? '' : 'display:none' }}">
+                            <label for="related_id_input" class="form-label contact-label">
+                                予約番号 <span class="badge-optional">任意</span>
+                            </label>
+                            <input
+                                type="number"
+                                id="related_id_input"
+                                name="related_id_input"
+                                min="1"
+                                class="form-control contact-input @error('related_id_input') is-invalid @enderror"
+                                value="{{ old('related_id_input', $old['related_id_input'] ?? '') }}"
+                                placeholder="例：123"
+                                style="max-width:200px"
+                            >
+                            <div class="form-text">確認メールに記載されている予約番号を入力してください。</div>
+                            @error('related_id_input')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
                         {{-- お問い合わせ内容 --}}
                         <div class="mb-5">
                             <label for="message" class="form-label contact-label">
@@ -138,5 +186,24 @@
 
     </div>
 </section>
+
+@push('scripts')
+<script>
+(function () {
+    const sel  = document.getElementById('related_type');
+    const wrap = document.getElementById('related-id-wrap');
+    const reservationTypes = ['rental_room_reservation', 'event_reservation'];
+
+    function toggle() {
+        wrap.style.display = reservationTypes.includes(sel.value) ? '' : 'none';
+        if (!reservationTypes.includes(sel.value)) {
+            document.getElementById('related_id_input').value = '';
+        }
+    }
+
+    sel.addEventListener('change', toggle);
+})();
+</script>
+@endpush
 
 @endsection
