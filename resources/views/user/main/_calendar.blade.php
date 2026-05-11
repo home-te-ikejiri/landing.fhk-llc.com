@@ -83,7 +83,7 @@
                                 $rl = $rentalLabel($day['rental_status'], $day['rental_available']);
                                 $isToday = $day['date']->isToday();
                             @endphp
-                            <td class="cal-cell {{ $day['dow'] === 0 ? 'cal-sun' : ($day['dow'] === 6 ? 'cal-sat' : '') }} {{ $isToday ? 'cal-today' : '' }}">
+                            <td class="cal-cell {{ $day['dow'] === 0 ? 'cal-sun' : ($day['dow'] === 6 ? 'cal-sat' : '') }} {{ $isToday ? 'cal-today' : '' }} {{ !$day['date']->isPast() ? 'cal-future' : '' }}">
                                 <div class="cal-day-num {{ $isToday ? 'cal-today-num' : '' }}">{{ $day['date']->day }}</div>
 
                                 {{-- 喫茶・RM ステータス --}}
@@ -138,7 +138,7 @@
                     $isToday = $day['date']->isToday();
                     $dowClass = $day['dow'] === 0 ? 'cal-sun' : ($day['dow'] === 6 ? 'cal-sat' : '');
                 @endphp
-                <tr class="{{ $dowClass }} {{ $isToday ? 'cal-today' : '' }}">
+                <tr class="{{ $dowClass }} {{ $isToday ? 'cal-today' : '' }} {{ !$day['date']->isPast() ? 'cal-future' : '' }}">
                     <td class="cal-sp-date {{ $isToday ? 'fw-bold' : '' }}">
                         {{ $day['date']->format('n/j') }}({{ $dowLabels[$day['dow']] }})
                     </td>

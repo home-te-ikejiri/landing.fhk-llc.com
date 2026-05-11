@@ -579,11 +579,17 @@ h5 {
     color: #777;
 }
 
-/* ステータス色 */
+/* ステータス色（デフォルト：過去日・未登録は薄め） */
 .cal-open   { color: var(--green-accent); font-weight: 700; }
 .cal-full   { color: #c0392b; font-weight: 700; }
 .cal-closed { color: #888; }
 .cal-none   { color: #bbb; }
+
+/* 本日以降: アイコン・空き（◯）文字を濃くする */
+.cal-future .cal-label-type                  { color: var(--main-color); }
+.cal-future .cal-open                        { color: #1a7a3a; }
+.cal-sp-table tr.cal-future .cal-sp-badge i  { color: var(--main-color); }
+.cal-sp-table tr.cal-future .cal-open        { color: #1a7a3a; }
 
 /* ===== PC カレンダー（テーブル形式） ===== */
 .cal-table {
