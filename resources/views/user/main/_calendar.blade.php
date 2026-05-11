@@ -45,9 +45,9 @@
 
 {{-- ===== 月ナビゲーション ===== --}}
 <div class="calendar-nav">
-    <a href="{{ $prevLink }}" class="cal-nav-btn"><i class="bi bi-chevron-left"></i></a>
+    <a href="{{ $prevLink }}" class="cal-nav-btn" data-month="{{ $calendar['prev_month'] }}" aria-label="前月"><i class="bi bi-chevron-left"></i></a>
     <span class="cal-month-title">{{ $monthLabel }}</span>
-    <a href="{{ $nextLink }}" class="cal-nav-btn"><i class="bi bi-chevron-right"></i></a>
+    <a href="{{ $nextLink }}" class="cal-nav-btn" data-month="{{ $calendar['next_month'] }}" aria-label="次月"><i class="bi bi-chevron-right"></i></a>
 </div>
 
 {{-- ===== 凡例 ===== --}}

@@ -232,7 +232,9 @@
                     <p class="mt-2">喫茶店の営業日・レンタルルームの空き状況・イベント情報をご確認いただけます。</p>
                 </div>
             </div>
-            @include('user.main._calendar')
+            <div id="calendar-wrap">
+                @include('user.main._calendar')
+            </div>
         </div>
     </section>
 
@@ -413,3 +415,63 @@
     </section>
 
 @endsection
+
+@push('scripts')
+<script>
+(function () {
+    const wrap       = document.getElementById('calendar-wrap');
+    const calendarEl = document.getElementById('calendar');
+
+    if (!wrap) return;
+
+    /**
+     * AJAX でカレンダー部分HTMLを取得して差し替える
+     */
+    function loadCalendar(month) {
+        wrap.style.opacity = '0.5';
+
+        fetch('/calendar?month=' + encodeURIComponent(month), {
+            headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        })
+        .then(function (res) {
+            if (!res.ok) throw new Error('network error');
+            return res.text();
+        })
+        .then(function (html) {
+            wrap.innerHTML = html;
+            wrap.style.opacity = '';
+            // ブラウザ履歴を更新（ページリロード時に同じ月を表示するため）
+            if (window.history && history.pushState) {
+                const url = new URL(window.location.href);
+                url.searchParams.set('month', month);
+                url.hash = 'calendar';
+                history.pushState({ month: month }, '', url.toString());
+            }
+        })
+        .catch(function () {
+            wrap.style.opacity = '';
+        });
+    }
+
+    // カレンダー内のナビボタンにイベント委譲
+    wrap.addEventListener('click', function (e) {
+        const btn = e.target.closest('.cal-nav-btn[data-month]');
+        if (!btn) return;
+        e.preventDefault();
+        loadCalendar(btn.dataset.month);
+        // #calendar セクションへスムーズスクロール
+        if (calendarEl) {
+            calendarEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+
+    // ブラウザの「戻る/進む」対応
+    window.addEventListener('popstate', function (e) {
+        const month = (e.state && e.state.month)
+            ? e.state.month
+            : (new URLSearchParams(window.location.search).get('month') || '');
+        if (month) loadCalendar(month);
+    });
+}());
+</script>
+@endpush

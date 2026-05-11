@@ -7,8 +7,9 @@ use App\Http\Controllers\User\NewsController;
 use App\Http\Controllers\User\RentalRoomController;
 
 Route::name('user.')->group(function () {
-    Route::get('/',                 [MainController::class, 'index']);
-    Route::get('/price',            [MainController::class, 'price'])->name('price');
+    Route::get('/',          [MainController::class, 'index']);
+    Route::get('/calendar',  [MainController::class, 'calendar'])->name('calendar');
+    Route::get('/price',     [MainController::class, 'price'])->name('price');
     Route::get('/news/{id}',        [NewsController::class, 'show']);
 
     // レンタルルーム
