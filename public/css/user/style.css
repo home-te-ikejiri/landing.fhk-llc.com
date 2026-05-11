@@ -714,10 +714,24 @@ h5 {
 
 .cal-sp-table tr {
     border-bottom: 1px solid #e5e5e5;
+    background-color: #fff;
+}
+
+.cal-sp-table tr.cal-sun {
+    background-color: #fdf3f2;
+}
+
+.cal-sp-table tr.cal-sat {
+    background-color: #f2f5fd;
 }
 
 .cal-sp-table tr.cal-today {
     background-color: #fef5e4;
+}
+
+.cal-sp-table tr.cal-today td:first-child {
+    border-left: 3px solid var(--accent-color);
+    color: var(--accent-color);
 }
 
 .cal-sp-date {
@@ -730,6 +744,7 @@ h5 {
 
 .cal-sp-table tr.cal-sun .cal-sp-date { color: #a93226; }
 .cal-sp-table tr.cal-sat .cal-sp-date { color: #1a5276; }
+.cal-sp-table tr.cal-today .cal-sp-date { color: var(--accent-color); font-weight: 700; }
 
 .cal-sp-content {
     padding: 0.4rem 0.5rem;
