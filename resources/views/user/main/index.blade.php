@@ -319,7 +319,12 @@
             </div>
         </div>
         <!-- Google Map：横幅いっぱい -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1233.519055304985!2d138.14875743042714!3d36.57047615747342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1774271897553!5m2!1sja!2sjp"
+        {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1233.519055304985!2d138.14875743042714!3d36.57047615747342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1774271897553!5m2!1sja!2sjp"
+            width="100%" height="450" style="border:0; display:block;"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="珈琲えんがわ 地図">
+        </iframe> --}}
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3204.314712087055!2d138.1488872!3d36.570633199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601d83003c57857d%3A0xaf63aef6815a5efa!2z54-I55Cy44GI44KT44GM44KP77yI44Os44Oz44K_44Or44Or44O844Og77yJ!5e0!3m2!1sja!2sjp!4v1778460564114!5m2!1sja!2sjp" 
             width="100%" height="450" style="border:0; display:block;"
             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
             title="珈琲えんがわ 地図">

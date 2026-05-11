@@ -238,7 +238,7 @@
                             <i class="bi bi-cup-hot-fill me-2"></i>コーヒー
                         </div>
                         <div class="option-card-body">
-                            <p class="option-price">250円 <small>／ 個</small></p>
+                            <p class="option-price">200円 <small>／ 個</small></p>
                             <p class="option-desc">小布施の「クローバーcoffee」さまのコーヒーバッグをご用意しました。</p>
                         </div>
                     </div>
