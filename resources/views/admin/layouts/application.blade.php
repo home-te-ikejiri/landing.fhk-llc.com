@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="noindex">
-    <title>喫茶えんがわ | システム管理画面</title>
+    <title>珈琲えんがわ | システム管理画面</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -45,7 +45,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="{{ url('admin') }}" class="brand-link">
-                喫茶えんがわ
+                珈琲えんがわ
             </a>
 
             <!-- Sidebar -->
