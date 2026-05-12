@@ -7,7 +7,7 @@
     <meta name="description" content="珈琲えんがわは、長野県篠ノ井にある喫茶店・レンタルルームです。「木」と「コーヒー」を軸に、ゆるやかにつながれる場を提供しています。合同会社FHK（フィーカ）運営。">
     <meta name="keywords" content="珈琲えんがわ,FHK,フィーカ,レンタルルーム,コーヒー,木製アクセサリー,長野,篠ノ井,ハンドメイド,喫茶店">
     <meta name="author" content="合同会社FHK（フィーカ）" />
-    <title>珈琲えんがわ | 長野・篠ノ井の喫茶店・レンタルルーム（合同会社FHK運営）</title>
+    <title>@yield('title', '珈琲えんがわ | 長野・篠ノ井の喫茶店・レンタルルーム（合同会社FHK運営）')</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">

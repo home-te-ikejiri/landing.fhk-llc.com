@@ -1,5 +1,7 @@
 @extends('user.layouts.application')
 
+@section('title', 'お問い合わせ | 珈琲えんがわ')
+
 @section('content')
 
 <section class="py-5 contact-section" id="contact">

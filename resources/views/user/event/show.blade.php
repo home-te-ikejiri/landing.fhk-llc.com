@@ -1,5 +1,7 @@
 @extends('user.layouts.application')
 
+@section('title', $event->title . ' | 珈琲えんがわ')
+
 @section('content')
 
 <section class="py-5 reserve-section" id="event-show">

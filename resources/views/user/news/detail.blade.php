@@ -1,5 +1,7 @@
 @extends('user.layouts.application')
 
+@section('title', $news->title . ' | 珈琲えんがわ')
+
 @section('content')
 
     {{-- ページヘッダー --}}

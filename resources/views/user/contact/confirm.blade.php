@@ -1,5 +1,7 @@
 @extends('user.layouts.application')
 
+@section('title', 'お問い合わせ確認 | 珈琲えんがわ')
+
 @section('content')
 @php
     $relatedTypeLabels = [

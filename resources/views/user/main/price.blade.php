@@ -1,5 +1,7 @@
 @extends('user.layouts.application')
 
+@section('title', '料金案内 | 珈琲えんがわ')
+
 @section('content')
 
     {{-- ページヘッダー --}}

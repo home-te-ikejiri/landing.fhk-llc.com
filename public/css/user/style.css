@@ -635,17 +635,18 @@ h5 {
     text-align: right;
     line-height: 1.2;
     margin-bottom: 0.2rem;
+    overflow: hidden;
 }
 
-.cal-day-num.cal-today-num {
-    display: inline-block;
+.cal-today-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--accent-color);
     color: #fff;
     border-radius: 50%;
     width: 1.5rem;
     height: 1.5rem;
-    line-height: 1.5rem;
-    text-align: center;
     font-size: 0.9rem;
     float: right;
 }

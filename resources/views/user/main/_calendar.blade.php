@@ -84,7 +84,13 @@
                                 $isToday = $day['date']->isToday();
                             @endphp
                             <td class="cal-cell {{ $day['dow'] === 0 ? 'cal-sun' : ($day['dow'] === 6 ? 'cal-sat' : '') }} {{ $isToday ? 'cal-today' : '' }} {{ !$day['date']->isPast() ? 'cal-future' : '' }}">
-                                <div class="cal-day-num {{ $isToday ? 'cal-today-num' : '' }}">{{ $day['date']->day }}</div>
+                                <div class="cal-day-num">
+                                    @if($isToday)
+                                        <span class="cal-today-badge">{{ $day['date']->day }}</span>
+                                    @else
+                                        {{ $day['date']->day }}
+                                    @endif
+                                </div>
 
                                 {{-- 喫茶・RM ステータス --}}
                                 <div class="cal-status-row">

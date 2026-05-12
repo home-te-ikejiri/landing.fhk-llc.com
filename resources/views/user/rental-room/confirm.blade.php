@@ -1,5 +1,7 @@
 @extends('user.layouts.application')
 
+@section('title', 'レンタルルーム予約確認 | 珈琲えんがわ')
+
 @section('content')
 @php
     $purposeLabels = [

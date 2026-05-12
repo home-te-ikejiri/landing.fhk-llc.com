@@ -1,5 +1,7 @@
 @extends('user.layouts.application')
 
+@section('title', 'イベント予約確認 | 珈琲えんがわ')
+
 @section('content')
 
 <section class="py-5 reserve-section" id="event-confirm">

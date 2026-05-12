@@ -1,5 +1,7 @@
 @extends('user.layouts.application')
 
+@section('title', '珈琲えんがわ | 長野・篠ノ井の喫茶店・レンタルルーム（合同会社FHK運営）')
+
 @section('content')
 
     {{-- ① ファーストビュー --}}

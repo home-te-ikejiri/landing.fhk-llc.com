@@ -1,5 +1,7 @@
 @extends('user.layouts.application')
 
+@section('title', 'レンタルルーム予約完了 | 珈琲えんがわ')
+
 @section('content')
 
 <section class="py-5 reserve-section" id="rental-room-complete">
