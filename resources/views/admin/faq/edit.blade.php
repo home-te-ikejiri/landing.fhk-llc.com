@@ -1,8 +1,10 @@
 @extends('admin.layouts.application')
 
 @push('article')
-    <!-- TinyMCE -->
-    <script src="{{ asset('assets/tinymce_6.8.3/tinymce.min.js') }}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs4.min.css">
+    <style>
+        .table-responsive { overflow: visible; }
+    </style>
 @endpush
 
 @section('content')
@@ -68,7 +70,7 @@
                                             @error('body')
                                                 <span class="error-message">{{ $message }}</span>
                                             @enderror
-                                            <textarea id="tinymce" class="form-control" rows="12" name="body">{!! e(old('body', $record->body)) !!}</textarea>
+                                            <textarea id="summernote-body" name="body">{{ old('body', $record->body) }}</textarea>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -98,5 +100,48 @@
 @endsection
 
 @push('script')
-    <script src="{{ asset('js/user/my-tinymce.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/lang/summernote-ja-JP.min.js"></script>
+    <script>
+        $(function () {
+            $('#summernote-body').summernote({
+                lang: 'ja-JP',
+                height: 300,
+                toolbar: [
+                    ['style',   ['style', 'bold', 'italic', 'underline', 'strikethrough', 'clear']],
+                    ['font',    ['fontsize', 'color']],
+                    ['para',    ['ul', 'ol', 'paragraph']],
+                    ['table',   ['table']],
+                    ['insert',  ['link', 'picture', 'hr']],
+                    ['view',    ['fullscreen', 'codeview']],
+                ],
+                callbacks: {
+                    onImageUpload: function (files) {
+                        uploadSummernoteImage(files[0], this);
+                    }
+                }
+            });
+
+            function uploadSummernoteImage(file, editor) {
+                var formData = new FormData();
+                formData.append('file', file);
+                $.ajax({
+                    url: '{{ route("admin.event.upload-image") }}',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function (data) {
+                        $(editor).summernote('insertImage', data.url);
+                    },
+                    error: function () {
+                        alert('画像のアップロードに失敗しました。');
+                    }
+                });
+            }
+        });
+    </script>
 @endpush

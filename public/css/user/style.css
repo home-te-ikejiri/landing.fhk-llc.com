@@ -1039,11 +1039,15 @@ h5 {
     line-height: 1.8;
 }
 
-/* --- Summernote 生成コンテンツ内のスタイル --- */
+/* --- Summernote 生成コンテンツ内のスタイル（イベント・ニュース・FAQ 共通） --- */
 
-/* 見出し */
+/* 見出し h1/h2 */
 .event-desc-body h1,
-.event-desc-body h2 {
+.event-desc-body h2,
+#news-detail .news-article-body h1,
+#news-detail .news-article-body h2,
+#faq .accordion-body h1,
+#faq .accordion-body h2 {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--main-color);
@@ -1053,8 +1057,13 @@ h5 {
     margin-bottom: 0.8rem;
 }
 
+/* 見出し h3/h4 */
 .event-desc-body h3,
-.event-desc-body h4 {
+.event-desc-body h4,
+#news-detail .news-article-body h3,
+#news-detail .news-article-body h4,
+#faq .accordion-body h3,
+#faq .accordion-body h4 {
     font-size: 1.05rem;
     font-weight: 700;
     color: var(--main-color);
@@ -1064,8 +1073,13 @@ h5 {
     margin-bottom: 0.6rem;
 }
 
+/* 見出し h5/h6 */
 .event-desc-body h5,
-.event-desc-body h6 {
+.event-desc-body h6,
+#news-detail .news-article-body h5,
+#news-detail .news-article-body h6,
+#faq .accordion-body h5,
+#faq .accordion-body h6 {
     font-size: 0.95rem;
     font-weight: 700;
     color: var(--main-color);
@@ -1074,39 +1088,53 @@ h5 {
 }
 
 /* 段落・リスト */
-.event-desc-body p {
+.event-desc-body p,
+#news-detail .news-article-body p,
+#faq .accordion-body p {
     margin-bottom: 0.75rem;
 }
 
 .event-desc-body ul,
-.event-desc-body ol {
+.event-desc-body ol,
+#news-detail .news-article-body ul,
+#news-detail .news-article-body ol,
+#faq .accordion-body ul,
+#faq .accordion-body ol {
     padding-left: 1.5rem;
     margin-bottom: 0.75rem;
 }
 
-.event-desc-body li {
+.event-desc-body li,
+#news-detail .news-article-body li,
+#faq .accordion-body li {
     margin-bottom: 0.25rem;
 }
 
 /* リンク */
-.event-desc-body a {
+.event-desc-body a,
+#faq .accordion-body a {
     color: var(--accent-color);
     text-decoration: underline;
 }
 
-.event-desc-body a:hover {
+.event-desc-body a:hover,
+#faq .accordion-body a:hover {
     color: var(--main-color);
 }
 
 /* 表組み */
-.event-desc-body table {
+.event-desc-body table,
+#news-detail .news-article-body table,
+#faq .accordion-body table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 1rem;
     font-size: 0.9rem;
 }
 
-.event-desc-body table th {
+.event-desc-body table th,
+#news-detail .news-article-body table th,
+#faq .accordion-body table th {
     background-color: var(--cream-color);
     color: var(--main-color);
     font-weight: 700;
@@ -1117,26 +1145,34 @@ h5 {
     white-space: nowrap;
 }
 
-.event-desc-body table td {
+.event-desc-body table td,
+#news-detail .news-article-body table td,
+#faq .accordion-body table td {
     padding: 0.55rem 0.8rem;
     color: var(--text-color);
     border: 1px solid var(--cream-color);
     word-break: break-word;
 }
 
-.event-desc-body table tbody tr:nth-child(even) td {
+.event-desc-body table tbody tr:nth-child(even) td,
+#news-detail .news-article-body table tbody tr:nth-child(even) td,
+#faq .accordion-body table tbody tr:nth-child(even) td {
     background-color: #fdf8f3;
 }
 
 /* 水平線 */
-.event-desc-body hr {
+.event-desc-body hr,
+#news-detail .news-article-body hr,
+#faq .accordion-body hr {
     border: none;
     border-top: 2px solid var(--cream-color);
     margin: 1.2rem 0;
 }
 
 /* 画像 */
-.event-desc-body img {
+.event-desc-body img,
+#news-detail .news-article-body img,
+#faq .accordion-body img {
     max-width: 100%;
     height: auto;
     border-radius: 6px;
@@ -1182,16 +1218,6 @@ h5 {
     font-size: 1rem;
     line-height: 2;
     color: var(--text-color);
-}
-
-#news-detail .news-article-body p {
-    margin-bottom: 1.2rem;
-}
-
-#news-detail .news-article-body img {
-    max-width: 100%;
-    border-radius: 8px;
-    margin: 1rem 0;
 }
 
 /* ============ お問い合わせページ ============ */
