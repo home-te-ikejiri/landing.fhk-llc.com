@@ -1039,6 +1039,110 @@ h5 {
     line-height: 1.8;
 }
 
+/* --- Summernote 生成コンテンツ内のスタイル --- */
+
+/* 見出し */
+.event-desc-body h1,
+.event-desc-body h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--main-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.3rem;
+    margin-top: 1.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.event-desc-body h3,
+.event-desc-body h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--main-color);
+    border-left: 4px solid var(--accent-color);
+    padding-left: 0.6rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.6rem;
+}
+
+.event-desc-body h5,
+.event-desc-body h6 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--main-color);
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+/* 段落・リスト */
+.event-desc-body p {
+    margin-bottom: 0.75rem;
+}
+
+.event-desc-body ul,
+.event-desc-body ol {
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.event-desc-body li {
+    margin-bottom: 0.25rem;
+}
+
+/* リンク */
+.event-desc-body a {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.event-desc-body a:hover {
+    color: var(--main-color);
+}
+
+/* 表組み */
+.event-desc-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.event-desc-body table th {
+    background-color: var(--cream-color);
+    color: var(--main-color);
+    font-weight: 700;
+    padding: 0.55rem 0.8rem 0.55rem 1rem;
+    border: 1px solid #d8c4a8;
+    border-left: 4px solid var(--accent-color);
+    text-align: left;
+    white-space: nowrap;
+}
+
+.event-desc-body table td {
+    padding: 0.55rem 0.8rem;
+    color: var(--text-color);
+    border: 1px solid var(--cream-color);
+    word-break: break-word;
+}
+
+.event-desc-body table tbody tr:nth-child(even) td {
+    background-color: #fdf8f3;
+}
+
+/* 水平線 */
+.event-desc-body hr {
+    border: none;
+    border-top: 2px solid var(--cream-color);
+    margin: 1.2rem 0;
+}
+
+/* 画像 */
+.event-desc-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 0.5rem 0;
+}
+
 /* ============ ニュース詳細 ============ */
 #news a {
     text-decoration: none;

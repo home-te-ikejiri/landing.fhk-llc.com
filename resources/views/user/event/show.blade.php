@@ -69,7 +69,7 @@
                     @if ($event->description)
                     <div class="event-description mb-4">
                         <h3 class="event-desc-heading">イベント概要</h3>
-                        <div class="event-desc-body">{!! nl2br(e($event->description)) !!}</div>
+                        <div class="event-desc-body">{!! purify($event->description) !!}</div>
                     </div>
                     @endif
 

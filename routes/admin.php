@@ -28,6 +28,7 @@ Route::prefix('admin')->name('admin.')->middleware('basicauth')->group(function 
     Route::resource('news',                                 NewsController::class);
     Route::resource('faq',                                  FaqController::class);
     Route::resource('faq-category',                         FaqCategoryController::class);
+    Route::post('event/upload-image',                        [EventController::class, 'imageUpload'])->name('event.upload-image');
     Route::resource('event',                                EventController::class);
     Route::get('rental-room-setting',  [RentalRoomSettingController::class, 'edit'])->name('rental-room-setting.edit');
     Route::put('rental-room-setting',  [RentalRoomSettingController::class, 'update'])->name('rental-room-setting.update');

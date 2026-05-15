@@ -280,6 +280,15 @@ if (!function_exists('purify')) {
         // id属性を許可する
         $config->set('Attr.EnableID', true);
 
+        // Summernote が生成するインラインスタイルを許可
+        $config->set('CSS.AllowedProperties', [
+            'text-align', 'color', 'background-color',
+            'font-size', 'font-weight', 'font-style', 'text-decoration',
+            'width', 'height', 'max-width', 'float',
+            'margin', 'margin-top', 'margin-right', 'margin-bottom', 'margin-left',
+            'padding', 'padding-top', 'padding-right', 'padding-bottom', 'padding-left',
+        ]);
+
 
         $purifier = new \HTMLPurifier($config);
 

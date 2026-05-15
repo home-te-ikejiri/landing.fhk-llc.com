@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\EventRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Services\Admin\EventService;
 
 class EventController extends Controller
@@ -54,5 +55,16 @@ class EventController extends Controller
     {
         $this->service->delete($id);
         return response()->json(['result' => 'ok']);
+    }
+
+    public function imageUpload(Request $request)
+    {
+        $request->validate([
+            'file' => ['required', 'image', 'mimes:jpeg,png,gif,webp', 'max:5120'],
+        ]);
+
+        $path = $request->file('file')->store('summernote/events', 'public');
+
+        return response()->json(['url' => Storage::disk('public')->url($path)]);
     }
 }
