@@ -49,7 +49,7 @@
                                             <td class="font-weight-bold text-center align-middle">
                                                 {{ sprintf('%02d', $slot->hour) }}:00〜{{ sprintf('%02d', $slot->hour + 1) }}:00
                                             </td>
-                                            <td class="text-center align-middle">
+                                            <td class="text-left align-middle">
                                                 <input type="hidden" name="slots[{{ $i }}][hour]" value="{{ $slot->hour }}">
                                                 <div class="custom-control custom-radio custom-control-inline">
                                                     <input type="radio" id="slot_ok_{{ $i }}" name="slots[{{ $i }}][is_blocked]"
