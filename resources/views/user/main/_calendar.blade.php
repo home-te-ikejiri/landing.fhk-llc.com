@@ -82,6 +82,7 @@
                                 $sl = $shopLabel($day['shop_status']);
                                 $rl = $rentalLabel($day['rental_status'], $day['rental_available']);
                                 $isToday = $day['date']->isToday();
+                                $isPast  = $day['date']->lt(now()->startOfDay());
                             @endphp
                             <td class="cal-cell {{ $day['dow'] === 0 ? 'cal-sun' : ($day['dow'] === 6 ? 'cal-sat' : '') }} {{ $isToday ? 'cal-today' : '' }} {{ !$day['date']->isPast() ? 'cal-future' : '' }}">
                                 <div class="cal-day-num">
@@ -97,7 +98,7 @@
                                     <span class="cal-label-type"><i class="bi bi-cup-hot-fill"></i></span>
                                     <span class="{{ $sl['class'] }}">{{ $sl['text'] }}</span>
                                     <span class="cal-label-type ms-2"><i class="bi bi-door-open-fill"></i></span>
-                                    @if($day['rental_status'] === 2 && $day['rental_available'] === true)
+                                    @if($day['rental_status'] === 2 && $day['rental_available'] === true && !$isPast)
                                         <a href="{{ url('/rental-room/' . $day['date_str']) }}" class="{{ $rl['class'] }}">{{ $rl['text'] }}</a>
                                     @else
                                         <span class="{{ $rl['class'] }}">{{ $rl['text'] }}</span>
@@ -142,6 +143,7 @@
                     $sl = $shopLabel($day['shop_status']);
                     $rl = $rentalLabel($day['rental_status'], $day['rental_available']);
                     $isToday = $day['date']->isToday();
+                    $isPast  = $day['date']->lt(now()->startOfDay());
                     $dowClass = $day['dow'] === 0 ? 'cal-sun' : ($day['dow'] === 6 ? 'cal-sat' : '');
                 @endphp
                 <tr class="{{ $dowClass }} {{ $isToday ? 'cal-today' : '' }} {{ !$day['date']->isPast() ? 'cal-future' : '' }}">
@@ -155,7 +157,7 @@
                         {{-- RM --}}
                         <span class="cal-sp-badge">
                             <i class="bi bi-door-open-fill"></i>
-                            @if($day['rental_status'] === 2 && $day['rental_available'] === true)
+                            @if($day['rental_status'] === 2 && $day['rental_available'] === true && !$isPast)
                                 <a href="{{ url('/rental-room/' . $day['date_str']) }}" class="{{ $rl['class'] }}">{{ $rl['text'] }}</a>
                             @else
                                 <span class="{{ $rl['class'] }}">{{ $rl['text'] }}</span>
