@@ -8,8 +8,9 @@ use App\Models\RentalRoomTimeSlot;
 
 class RentalRoomTimeSlotService extends Service
 {
-    // 管理対象とする時間帯（9〜22時）
-    const HOURS = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
+    // 管理対象とする時間帯（10〜17時）
+    const HOURS = [10, 11, 12, 13, 14, 15, 16, 17];
+    // const HOURS = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
 
     public function __construct(RentalRoomTimeSlot $model)
     {
