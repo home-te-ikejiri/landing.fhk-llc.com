@@ -580,9 +580,17 @@ h5 {
 }
 
 /* ステータス色（デフォルト：過去日・未登録は薄め） */
-.cal-open   { color: var(--green-accent); font-weight: 700; }
-.cal-full   { color: #c0392b; font-weight: 700; }
-.cal-closed { color: #888; }
+.cal-open,
+.cal-full {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1;
+    /* 記号の線を太く見せる（○/✕は元々の線が細いため縁取りで補強） */
+    text-shadow: 0.35px 0 currentColor, -0.35px 0 currentColor, 0 0.35px currentColor, 0 -0.35px currentColor;
+}
+.cal-open   { color: var(--green-accent); }
+.cal-full   { color: #c0392b; }
+.cal-closed { color: #888; font-size: 0.95rem; font-weight: 700; }
 .cal-none   { color: #bbb; }
 
 /* 本日以降: アイコン・空き（◯）文字を濃くする */
@@ -664,7 +672,7 @@ h5 {
 
 .cal-label-type {
     color: #aaa;
-    font-size: 0.7rem;
+    font-size: 0.78rem;
 }
 
 .cal-event-item {
