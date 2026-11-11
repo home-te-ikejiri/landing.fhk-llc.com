@@ -29,7 +29,7 @@
     $shopLabel = function(int $status): array {
         return match($status) {
             1 => ['text' => '休', 'class' => 'cal-closed'],
-            2 => ['text' => '◯', 'class' => 'cal-open'],
+            2 => ['text' => '◯営業', 'class' => 'cal-shop-open'],
             default => ['text' => '－', 'class' => 'cal-none'],
         };
     };
@@ -53,10 +53,10 @@
 {{-- ===== 凡例 ===== --}}
 <div class="cal-legend">
     <span><i class="bi bi-cup-hot-fill me-1"></i>喫茶:</span>
-    <span class="cal-open">◯</span><span class="cal-legend-txt">オープン</span>
+    <span class="cal-shop-open">◯営業</span><span class="cal-legend-txt">営業日</span>
     <span class="cal-closed ms-2">休</span><span class="cal-legend-txt">店休日</span>
-    <span class="ms-3"><i class="bi bi-door-open-fill me-1"></i>RM:</span>
-    <span class="cal-open">◯</span><span class="cal-legend-txt">空きあり</span>
+    <span class="ms-3"><i class="bi bi-door-open-fill me-1"></i>レンタルルーム:</span>
+    <span class="cal-book cal-book-legend">◯予約</span><span class="cal-legend-txt">空きあり（タップで予約）</span>
     <span class="cal-full ms-2">✕</span><span class="cal-legend-txt">満席</span>
     <span class="cal-closed ms-2">休</span><span class="cal-legend-txt">休業</span>
 </div>
@@ -97,9 +97,11 @@
                                 <div class="cal-status-row">
                                     <span class="cal-label-type"><i class="bi bi-cup-hot-fill"></i></span>
                                     <span class="{{ $sl['class'] }}">{{ $sl['text'] }}</span>
-                                    <span class="cal-label-type ms-2"><i class="bi bi-door-open-fill"></i></span>
+                                </div>
+                                <div class="cal-status-row">
+                                    <span class="cal-label-type"><i class="bi bi-door-open-fill"></i></span>
                                     @if($day['rental_status'] === 2 && $day['rental_available'] === true && !$isPast)
-                                        <a href="{{ url('/rental-room/' . $day['date_str']) }}" class="{{ $rl['class'] }}">{{ $rl['text'] }}</a>
+                                        <a href="{{ url('/rental-room/' . $day['date_str']) }}" class="cal-book" aria-label="{{ $day['date']->format('n月j日') }}のレンタルルームを予約する">◯予約</a>
                                     @else
                                         <span class="{{ $rl['class'] }}">{{ $rl['text'] }}</span>
                                     @endif
@@ -158,7 +160,7 @@
                         <span class="cal-sp-badge">
                             <i class="bi bi-door-open-fill"></i>
                             @if($day['rental_status'] === 2 && $day['rental_available'] === true && !$isPast)
-                                <a href="{{ url('/rental-room/' . $day['date_str']) }}" class="{{ $rl['class'] }}">{{ $rl['text'] }}</a>
+                                <a href="{{ url('/rental-room/' . $day['date_str']) }}" class="cal-book" aria-label="{{ $day['date']->format('n月j日') }}のレンタルルームを予約する">◯予約</a>
                             @else
                                 <span class="{{ $rl['class'] }}">{{ $rl['text'] }}</span>
                             @endif

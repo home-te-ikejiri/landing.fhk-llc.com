@@ -31,7 +31,7 @@
 </head>
 <body class="h-100 vstack" data-bs-spy="scroll" data-bs-target="#navbar">
 
-    <nav class="navbar navbar-expand-lg fixed-top text-dark" id="navbar">
+    <nav class="navbar navbar-expand-xl fixed-top text-dark" id="navbar">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="/">
                 <img class="main-logo" src="{{ asset('images/user/fhk-logo.png') }}" alt="合同会社FHK（フィーカ）">

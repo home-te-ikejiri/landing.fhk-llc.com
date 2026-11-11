@@ -232,6 +232,7 @@
                 <div class="col text-center">
                     <h1 class="section-heading">営業カレンダー・ご予約</h1>
                     <p class="mt-2">喫茶店の営業日・レンタルルームの空き状況・イベント情報をご確認いただけます。</p>
+                    <p class="small">レンタルルームのご予約は、カレンダーの <span class="cal-book cal-book-legend">◯予約</span> をタップしてください。</p>
                 </div>
             </div>
             <div id="calendar-wrap">

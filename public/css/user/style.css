@@ -1524,3 +1524,40 @@ h5 {
 .notes-list li:last-child {
     border-bottom: none;
 }
+
+/* 予約できる日（タップ可能なボタン） */
+.cal-book {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background-color: #1a7a3a;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.15s, transform 0.15s;
+}
+a.cal-book:hover,
+a.cal-book:focus {
+    background-color: #12602c;
+    color: #fff;
+    transform: translateY(-1px);
+}
+.cal-book-legend { cursor: default; box-shadow: none; }
+@media (max-width: 991px) {
+    .cal-book { font-size: 0.85rem; padding: 0.3rem 0.7rem; }
+}
+
+/* 喫茶店 営業日（◯営業） */
+.cal-shop-open {
+    color: #B87A3B;
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* PCセル: 「◯営業」と「◯予約」の◯を縦に揃える（ボタン左余白ぶん字下げ） */
+.cal-table .cal-shop-open { padding-left: 0.55rem; }
