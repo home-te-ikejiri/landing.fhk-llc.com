@@ -23,8 +23,8 @@
                 <a href="{{ route('user.price') }}" class="btn btn-outline-light px-4 py-2">
                     <i class="bi bi-currency-yen me-1"></i> 利用料金はこちら
                 </a>
-                <a href="https://stores.jp" target="_blank" class="btn btn-outline-light px-4 py-2">
-                    <i class="bi bi-bag-fill me-1"></i> ECショップはこちら（準備中）
+                <a href="https://coffee-engawa.stores.jp/" target="_blank" class="btn btn-outline-light px-4 py-2">
+                    <i class="bi bi-bag-fill me-1"></i> ECショップはこちら
                 </a>
             </div>
         </div>
@@ -282,8 +282,8 @@
                             <h5 class="mt-2">コーヒー販売（EC）</h5>
                             <p>焙煎したコーヒー豆をオンラインで販売予定です。ご自宅でも「珈琲えんがわ」の味と時間をお楽しみいただけます。</p>
                             <div class="mt-3">
-                                <a href="https://stores.jp" target="_blank" class="btn btn-accent">
-                                    <i class="bi bi-bag-fill me-1"></i> ECショップを見る（Stores：準備中）
+                                <a href="https://coffee-engawa.stores.jp/" target="_blank" class="btn btn-accent">
+                                    <i class="bi bi-bag-fill me-1"></i> ECショップを見る（Stores）
                                 </a>
                             </div>
                         </div>
