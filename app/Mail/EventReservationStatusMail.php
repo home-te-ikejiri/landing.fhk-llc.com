@@ -20,8 +20,8 @@ class EventReservationStatusMail extends Mailable
     use Queueable, SerializesModels;
 
     private const SUBJECTS = [
-        'confirmed'  => '【FHK】イベントへのお申し込みが確定しました',
-        'cancelled'  => '【FHK】イベントへのお申し込みがキャンセルされました',
+        'confirmed'  => '【珈琲えんがわ】イベントへのお申し込みが確定しました',
+        'cancelled'  => '【珈琲えんがわ】イベントへのお申し込みがキャンセルされました',
     ];
 
     private const TEMPLATES = [
@@ -38,7 +38,7 @@ class EventReservationStatusMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: self::SUBJECTS[$this->statusKey] ?? '【FHK】イベントお申し込みのお知らせ',
+            subject: self::SUBJECTS[$this->statusKey] ?? '【珈琲えんがわ】イベントお申し込みのお知らせ',
         );
     }
 

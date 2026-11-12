@@ -4,9 +4,9 @@
         'cancelled'  => 'キャンセル',
     ];
 @endphp
-【FHK 管理者通知】申込番号 {{ $reservation->id }} のステータスを「{{ $statusLabels[$statusKey] ?? $statusKey }}」に更新しました。
+【FHK 管理者通知】申込番号 {!! $reservation->id !!} のステータスを「{!! $statusLabels[$statusKey] ?? $statusKey !!}」に更新しました。
 
-以下の内容をお客様（{{ $reservation->email }}）に送付しました。
+以下の内容をお客様（{!! $reservation->email !!}）に送付しました。
 ========================================
 
 @includeFirst([

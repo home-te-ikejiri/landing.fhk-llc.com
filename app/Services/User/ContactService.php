@@ -3,6 +3,7 @@
 namespace App\Services\User;
 
 use App\Models\Contact;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class ContactService
@@ -27,9 +28,22 @@ class ContactService
 
         Mail::raw($this->buildBody($data), function ($message) use ($data, $to) {
             $message->to($to)
-                    ->subject('【FHK】お問い合わせがありました')
+                    ->subject('【珈琲えんがわ】お問い合わせがありました')
                     ->replyTo($data['email'], $data['name']);
         });
+
+        // お問い合わせ者へ受付確認メールを送信（失敗しても処理は継続）
+        try {
+            Mail::raw($this->buildAutoReplyBody($data), function ($message) use ($data) {
+                $message->to($data['email'], $data['name'])
+                        ->subject('【珈琲えんがわ】お問い合わせを受け付けました');
+            });
+        } catch (\Throwable $e) {
+            Log::error('お問い合わせ受付確認メールの送信に失敗しました', [
+                'email'     => $data['email'],
+                'exception' => $e->getMessage(),
+            ]);
+        }
 
         // DBへ保存
         $relatedType = ($data['related_type'] ?? '') !== '' && ($data['related_type'] ?? '') !== 'other'
@@ -59,9 +73,31 @@ class ContactService
 
     private function buildBody(array $data): string
     {
-        $body  = "FHK ウェブサイトより、お問い合わせがありました。\n";
+        $body  = "珈琲えんがわ ウェブサイトより、お問い合わせがありました。\n";
         $body .= str_repeat('-', 40) . "\n\n";
-        $body .= "【お名前】　　　　　{$data['name']}\n";
+        $body .= $this->buildDetail($data);
+
+        return $body;
+    }
+
+    private function buildAutoReplyBody(array $data): string
+    {
+        $body  = "{$data['name']} 様\n\n";
+        $body .= "お問い合わせいただきありがとうございます。\n";
+        $body .= "珈琲えんがわでございます。\n\n";
+        $body .= "以下の内容でお問い合わせを受け付けました。\n";
+        $body .= "担当者より確認のうえ、改めてご連絡いたします。\n";
+        $body .= str_repeat('-', 40) . "\n\n";
+        $body .= $this->buildDetail($data);
+        $body .= "\n" . str_repeat('-', 40) . "\n";
+        $body .= "※このメールは自動送信です。お心当たりのない場合は破棄してください。\n";
+
+        return $body;
+    }
+
+    private function buildDetail(array $data): string
+    {
+        $body  = "【お名前】　　　　　{$data['name']}\n";
 
         if (!empty($data['kana'])) {
             $body .= "【ふりがな】　　　　{$data['kana']}\n";

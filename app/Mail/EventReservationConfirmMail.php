@@ -21,7 +21,7 @@ class EventReservationConfirmMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: '【FHK】イベントへのお申し込みを承りました',
+            subject: '【珈琲えんがわ】イベントへのお申し込みを承りました',
         );
     }
 

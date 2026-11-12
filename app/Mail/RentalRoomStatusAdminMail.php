@@ -32,7 +32,7 @@ class RentalRoomStatusAdminMail extends Mailable
     {
         $label = self::STATUS_LABELS[$this->statusKey] ?? $this->statusKey;
         return new Envelope(
-            subject: "【FHK】予約番号{$this->reservation->id} のステータスを「{$label}」に更新しました",
+            subject: "【珈琲えんがわ】予約番号{$this->reservation->id} のステータスを「{$label}」に更新しました",
         );
     }
 

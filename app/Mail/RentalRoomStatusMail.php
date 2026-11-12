@@ -20,9 +20,9 @@ class RentalRoomStatusMail extends Mailable
     use Queueable, SerializesModels;
 
     private const SUBJECTS = [
-        'confirmed'  => '【FHK】レンタルルームのご予約が確定しました',
-        'rejected'   => '【FHK】レンタルルームのご予約について（受付不可のご連絡）',
-        'cancelled'  => '【FHK】レンタルルームのご予約がキャンセルされました',
+        'confirmed'  => '【珈琲えんがわ】レンタルルームのご予約が確定しました',
+        'rejected'   => '【珈琲えんがわ】レンタルルームのご予約について（受付不可のご連絡）',
+        'cancelled'  => '【珈琲えんがわ】レンタルルームのご予約がキャンセルされました',
     ];
 
     private const TEMPLATES = [
@@ -40,7 +40,7 @@ class RentalRoomStatusMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: self::SUBJECTS[$this->statusKey] ?? '【FHK】レンタルルームご予約のお知らせ',
+            subject: self::SUBJECTS[$this->statusKey] ?? '【珈琲えんがわ】レンタルルームご予約のお知らせ',
         );
     }
 

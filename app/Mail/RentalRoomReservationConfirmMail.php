@@ -21,7 +21,7 @@ class RentalRoomReservationConfirmMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: '【FHK】レンタルルームのご予約を承りました',
+            subject: '【珈琲えんがわ】レンタルルームのご予約を承りました',
         );
     }
 
