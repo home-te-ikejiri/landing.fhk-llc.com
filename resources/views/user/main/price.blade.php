@@ -28,7 +28,7 @@
                     <div class="price-card">
                         <h5 class="price-card-title"><i class="bi bi-calculator me-2"></i>基本料金</h5>
                         <p class="price-formula">300円 × 人数 × 時間</p>
-                        <p class="text-muted small mb-0">※ 1時間あたりの最低料金は 1,000円 となります。</p>
+                        <p class="text-muted small mb-0">※ 最低料金は1回のご利用につき 1,000円 です（合計金額が1,000円に満たない場合は1,000円となります）。</p>
                     </div>
                 </div>
             </div>
@@ -58,6 +58,7 @@
                         </table>
                     </div>
                     <div class="price-notes">
+                        <p class="mb-1"><i class="bi bi-info-circle me-1 text-accent"></i>合計料金が1,000円に満たない場合は、1,000円となります（1名で3時間まで利用の場合など）</p>
                         <p class="mb-1"><i class="bi bi-info-circle me-1 text-accent"></i>5時間を超える場合は +300円／時間 となります。</p>
                         <p class="mb-1"><i class="bi bi-info-circle me-1 text-accent"></i>未就学児は無料です。</p>
                         <p class="mb-1"><i class="bi bi-info-circle me-1 text-accent"></i>小学生以上は1名として料金計算いたします。</p>
@@ -110,7 +111,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>2時間まで</td><td>1,000円</td></tr>
+                                    <tr><td>2時間まで</td><td>1,200円</td></tr>
                                     <tr><td>3時間まで</td><td>1,600円</td></tr>
                                     <tr><td>5時間まで</td><td>2,400円</td></tr>
                                 </tbody>
